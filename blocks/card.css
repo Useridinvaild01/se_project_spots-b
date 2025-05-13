@@ -6,6 +6,21 @@
     border-radius: 8px;
 }
 
+.card__title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .card__content {
     display: flex;
     align-items: center;
@@ -39,6 +54,10 @@
         height: 288px;
     }
 
+    .card__title {
+        max-width: 288px;
+    }
+}
     .card__content {
         max-width: 288px;
     }

@@ -27,6 +27,7 @@
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #212121;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     max-width: 420px;
@@ -43,12 +44,15 @@
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #212121;
+    opacity: 0.3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     max-width: 420px;
 }
 
 .profile__edit-btn {
+    display: flex;
     margin-top: auto;
     font-family: Poppins, Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -59,13 +63,15 @@
     border: none;
     background-color: transparent;
     color: rgba(33,33,33, 0.7);
+    cursor: pointer;
 }
 
 .profile__edit-btn:hover{
     color: #212121;
-  }
+}
 
 .profile__add-btn {
+    display: flex;
     margin: 18px 32px 18px 32px;
     font-family: Poppins, Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -80,12 +86,13 @@
     height: 52px;
     gap: 8px;
     border: none;
+    cursor: pointer;
 }
 
 .profile__add-btn:hover{
     background-color: #212121;
     opacity: 80%;
-  }
+}
 
 @media screen and (max-width: 627px) {
     .profile {

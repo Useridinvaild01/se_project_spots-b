@@ -1,18 +1,4 @@
 @font-face {
-    src: url(./fonts/Poppins/Poppins-Regular.ttf) format("woff2"),
-            url(./fonts/Poppins/Poppins-Regular.ttf) format("woff"),
-            url(./fonts/Poppins/Poppins-Regular.ttf) format("truetype");
-    font-family: Poppins;
-}
-
-@font-face {
-    src: url(./fonts/Poppins/Poppins-Medium.ttf) format("woff2"),
-            url(./fonts/Poppins/Poppins-Medium.ttf) format("woff"),
-            url(./fonts/Poppins/Poppins-Medium.ttf) format("truetype");
-    font-family: Poppins;
-}
-
-@font-face {
     font-family: Poppins;
     font-style: normal;
     font-weight: 400;

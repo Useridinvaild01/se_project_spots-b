@@ -23,7 +23,7 @@ This is a website that shares images and locations from Bessie Coleman. The imag
 
 This webpage is deployed to GitHub pages.
 
-[Deployment Link](https://github.com/Useridinvaild01/se_project_spots.git)
+[Deployment Link](https://github.com/Useridinvaild01/se_project_spots-b)
 
 ### Overview  
 
