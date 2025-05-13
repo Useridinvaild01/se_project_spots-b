@@ -46,4 +46,10 @@ The way you'll do this at work is by exporting images directly from Figma — we
 ## Plan on improving the project
 I would like to see a repository for all cheat sheets to easily reference in future projects and more practice with debugging would be helpful.
 
+## Video Submission
+
+Check out my review video of my work.
+
+[Video Submission Link](https://drive.google.com/file/d/1xJCZHFRpLPC5DYAK-ACYZLh0M_HO22s0/view?usp=drive_link)
+
 Thanks for your assistance!

@@ -18,9 +18,7 @@
         padding-top: 20px;
         padding-bottom: 40px;
     }
-}
 
-{
     .cards__list {
         grid-template-columns: repeat(auto-fit, 288px);
     }
