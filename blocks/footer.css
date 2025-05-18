@@ -1,10 +1,10 @@
 .footer {
     background: transparent;
     font-family: Poppins, Arial, Helvetica, sans-serif;
-    padding: 1340px 0 0 668px;
+    padding: 160px 0;
     display: flex;
     justify-content: center;
-    max-width: 1440px;
+    
   }
 
   .footer__copyright {
