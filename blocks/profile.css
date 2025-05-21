@@ -45,7 +45,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: #212121;
-    opacity: 0.7'
+    opacity: 0.7;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     max-width: 420px;
@@ -53,6 +53,7 @@
 
 .profile__edit-btn {
     gap: 8px;
+    display: flex;
     margin-top: auto;
     font-family: Poppins, Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -62,19 +63,20 @@
     letter-spacing: 0;
     border: none;
     background-color: transparent;
-    color: color: #212121;
+    color: #212121;
     opacity: 0.7;
     cursor: pointer;
+    padding: 0;
 }
 
 .profile__edit-btn:hover{
-    color: #212121;
     opacity: 1;
 }
 
 .profile__add-btn {
-    display: flex;
-     align-self: end;
+    display: infine-flex;
+    flex-wrap: wrap;
+    align-self: end;
     margin-left: auto;
     font-family: Poppins, Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -119,7 +121,6 @@
     }
 
     .profile__description {
-        font-size: 16px;
         margin: 0 0 32px;
         max-width: 288px;
     }

@@ -1,5 +1,5 @@
 .cards {
-    padding: 310px 0 0 80px;
+    padding: 20px 0 0 40px;
     border-bottom: 1px rgba(33,33,33, 0.4) solid;
 }
 
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 627px) {
     .cards {
-        padding-bottom: 0px;
+        padding-bottom: 20px;
     }
 
     .cards__list {

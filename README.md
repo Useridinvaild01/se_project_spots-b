@@ -23,7 +23,7 @@ This is a website that shares images and locations from Bessie Coleman. The imag
 
 This webpage is deployed to GitHub pages.
 
-[Deployment Link](https://github.com/Useridinvaild01/se_project_spots-b)
+Deployment Link:(https://github.com/Useridinvaild01/se_project_spots-b.git)
 
 ### Overview  
 
@@ -50,6 +50,6 @@ I would like to see a repository for all cheat sheets to easily reference in fut
 
 Check out my review video of my work.
 
-[Video Submission Link](https://drive.google.com/file/d/1xJCZHFRpLPC5DYAK-ACYZLh0M_HO22s0/view?usp=drive_link)
+[Video Submission Link] (https://drive.google.com/file/d/1xJCZHFRpLPC5DYAK-ACYZLh0M_HO22s0/view)
 
 Thanks for your assistance!
