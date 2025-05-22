@@ -74,8 +74,8 @@
 }
 
 .profile__add-btn {
-    display: infine-flex;
-    flex-wrap: wrap;
+    gap: 8px;
+    display: flex;
     align-self: end;
     margin-left: auto;
     font-family: Poppins, Arial, Helvetica, sans-serif;
@@ -90,7 +90,7 @@
     width: 157px;
     height: 52px;
     align-items: center;
-   justify-content: center;
+    justify-content: center;
     border: none;
     cursor: pointer;
 }
