@@ -100,14 +100,15 @@
 }
 
 @media screen and (max-width: 627px) {
-    .profile__edit-btn: align-self: center; {
+    .profile__edit-btn: 
+       align-self: center; 
         flex-direction: column;
         max-width: 288px;
         align-items: center;
         text-align: center;
         padding-top: 20px;
     }
-    }
+    
 
     .profile__avatar {
         margin: 0 0 12px;
