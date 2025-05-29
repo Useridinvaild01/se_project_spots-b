@@ -36,25 +36,7 @@
   background-color: transparent;
   opacity: 40%;
 
-  cursor: auto;
   cursor: pointer;
-
-  cursor: zoom-out;
-
-  cursor: url(hand.cur), pointer;
-
-  cursor: url(cursor_1.png) 4 12, auto;
-  cursor: url(cursor_2.png) 2 2, pointer;
-
-  cursor: url(cursor_1.svg) 4 5, url(cursor_2.svg),
-    /* …, */ url(cursor_n.cur) 5 5, progress;
-
-  /* Global values */
-  cursor: inherit;
-  cursor: initial;
-  cursor: revert;
-  cursor: revert-layer;
-  cursor: unset;
 }
 
 .card__like-btn:hover {
