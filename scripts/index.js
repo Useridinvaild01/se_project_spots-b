@@ -16,7 +16,7 @@ editProfileBtn.addEventListener("click", function() {
  editProfileModal.classList.add(modal_is-opened);
 });
 
-editPRofileCloseBtn.addEventListener("click", function() {
+editProfileCloseBtn.addEventListener("click", function() {
     editlProfileNameInput.value= profileNameEl.textContent;
    // TODO- fill desctription input
     editProfileModal.classList.remove(modal_is-opened);
@@ -26,15 +26,15 @@ editProfileBtn.addEventListener("click", function() {
  newPostmodal.classList.add(modal_is-opened);
 });
 
-editPRofileCloseBtn.addEventListener("click", function() {
+editProfileCloseBtn ("click", function() {
     newPostmodal.classList.remove(modal_is-opened);
 });
 function handleEditProfileSubmit(evt){
     evt.preventDefault();
-    ProfileNameEl.textContent = editProfileNameInput.value;
+    profileNameEl.textContent = editProfileNameInput.value;
     //TODO - handle the other input
     editProfileModal.classList.remove("modal_is-opened");
 
 }
 
-editProofileForm.addEventListener("submit", handleEditProfileSubmit);
+editProfileForm.addEventListener("submit", handleEditProfileSubmit);
