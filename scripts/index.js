@@ -32,7 +32,7 @@ function handleEditProfileSubmit(evt) {
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 const newPostBtn = document.querySelector(".profile__newpost-btn");
-const newPostModal = document.querySelector("#new-post-modal");
+const newPostModal = document.querySelector("#new-post-modal");``
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
 const addCardFormElement = newPostModal.querySelector(".modal__form");
