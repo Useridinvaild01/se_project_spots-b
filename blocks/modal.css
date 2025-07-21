@@ -1,6 +1,7 @@
 .modal {
   visibility: hidden;
-  background-color: #00000080;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   right: 0;
@@ -10,86 +11,53 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  transition: opacity 0.3s ease;
 }
 
 .modal_is-open {
   visibility: visible;
-}
-
-.modal__container {
-  box-sizing: border-box; 
-  max-width: 730px;
-  width: 100%;
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 32px 50px;
-  position: relative;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.modal__close-btn {
-  opacity: 0.4; 
-  position: absolute;
-  top: 32px;
-  right: 50px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease-in-out; 
-}
-
-.modal__close-btn:hover {
   opacity: 1;
 }
 
-.modal__title {
-  margin: 0 0 32px;
-  font-size: 32px;
-  font-weight: 600;
-  color: #212121;
-}
-
-.modal__form {
-  display: flex;
-  flex-direction: column;
-}
-
-.modal__label {
-  margin: 0 0 32px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #212121;
-}
-
-.modal__input {
+.modal__container {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
   box-sizing: border-box;
-  line-height: 1; 
-  display: block;
-  width: 100%;
-  margin: 8px 0 0;
-  padding: 12px;
-  border: 1px solid rgba(33, 33, 33, 0.4); 
-  border-radius: 6px;
-  font-size: 20px; 
 }
 
-.modal__input::placeholder {
-  color: #2121214d;
+.modal__close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal__close-btn img {
+  width: 20px;
+  height: 20px;
 }
 
 .modal__submit-btn {
-  max-width: 156px;
-  background-color: #212121;
-  color: #fff;
-  padding: 12px 20px;
+  width: auto;
+  padding: 10px;
   border: none;
-  border-radius: 6px;
+  background-color: #333;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
 }
 
-.modal__submit-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8); 
+@media (max-width: 600px) {
+  .modal__submit-btn {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+  }
 }
