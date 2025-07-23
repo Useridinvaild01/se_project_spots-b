@@ -1,128 +1,71 @@
 .modal {
-  visibility: hidden;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-
-.modal_is-open {
+.modal.modal_is-open {
   visibility: visible;
   opacity: 1;
 }
 
 .modal__container {
-  position: relative;
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 400px;
   max-width: 90%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-
-.modal__close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-}
-
-.modal__close-btn::before,
-.modal__close-btn::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 2px;
-  background: #333;
-  transform-origin: center;
-}
-
-.modal__close-btn::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.modal__close-btn::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .modal__title {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 0 10px;
-  color: #333;
-}
-
-.modal__form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .modal__label {
-  font-size: 14px;
-  color: #555;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .modal__input {
   width: 100%;
   padding: 8px;
+  margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
 }
 
 .modal__submit-btn {
-  width: auto;
+  width: 100%;
+  background: black;
+  color: white;
   padding: 10px;
   border: none;
-  background-color: #333;
-  color: white;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s ease;
 }
 
-.modal__submit-btn:hover {
-  background-color: #555;
+.modal__close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
 }
 
+/* Mobile */
 @media (max-width: 600px) {
-  .modal__container {
-    width: 95%;
-    padding: 15px;
-  }
-
   .modal__submit-btn {
     width: 100%;
-    display: block;
-    margin-top: 10px;
   }
 }
-

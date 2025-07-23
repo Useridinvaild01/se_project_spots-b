@@ -15,7 +15,9 @@
       <header class="header">
         <img src="./images/logo.svg" alt="Spots Logo" class="header__logo" />
       </header>
+
       <main class="content">
+        <!-- Profile -->
         <section class="profile page__section">
           <img
             src="./images/avatar.jpg"
@@ -25,100 +27,101 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
-            <button type="button" class="profile__edit-btn">
-              <img src="./images/pencil.svg" alt="" aria-hidden="true" /> Edit
-              Profile
-            </button>
+            <button type="button" class="profile__edit-btn">Edit Profile</button>
           </div>
-          <button type="button" class="profile__add-btn">
-            <img src="./images/plus.svg" alt="" aria-hidden="true" /> New Post
-          </button>
+          <button type="button" class="profile__add-btn">New Post</button>
         </section>
+
+        <!-- Cards -->
         <section class="cards page__section">
           <ul class="cards__list">
             <li class="card">
-              <img
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Val Thorens"
-                class="card__image"
-              />
+              <img src="./images/1.jpg" alt="Val Thorens" class="card__image" />
               <div class="card__content">
                 <h2 class="card__title">Val Thorens</h2>
-                <button
-                  type="button"
-                  class="card__like-btn"
-                  aria-label="Like this post"
-                ></button>
+                <button class="card__like-btn" aria-label="Like this post"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/2.jpg" alt="Banff National Park" class="card__image" />
+              <div class="card__content">
+                <h2 class="card__title">Banff National Park</h2>
+                <button class="card__like-btn" aria-label="Like this post"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/3.jpg" alt="Swiss Alps" class="card__image" />
+              <div class="card__content">
+                <h2 class="card__title">Swiss Alps</h2>
+                <button class="card__like-btn" aria-label="Like this post"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/4.jpg" alt="Yosemite" class="card__image" />
+              <div class="card__content">
+                <h2 class="card__title">Yosemite</h2>
+                <button class="card__like-btn" aria-label="Like this post"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/5.jpg" alt="Iceland Glaciers" class="card__image" />
+              <div class="card__content">
+                <h2 class="card__title">Iceland Glaciers</h2>
+                <button class="card__like-btn" aria-label="Like this post"></button>
+              </div>
+            </li>
+            <li class="card">
+              <img src="./images/6.jpg" alt="Norwegian Fjords" class="card__image" />
+              <div class="card__content">
+                <h2 class="card__title">Norwegian Fjords</h2>
+                <button class="card__like-btn" aria-label="Like this post"></button>
               </div>
             </li>
           </ul>
         </section>
       </main>
+
       <footer id="contacts" class="footer">
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
+
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn" aria-label="Close">
-            <img src="./images/close.svg" alt="" aria-hidden="true" />
-          </button>
+          <button type="button" class="modal__close-btn" aria-label="Close">×</button>
           <h2 class="modal__title">Edit profile</h2>
           <form class="modal__form">
-            <label for="profile-name-input" class="modal__label">
+            <label class="modal__label">
               Name
-              <input
-                id="profile-name-input"
-                type="text"
-                class="modal__input"
-                placeholder="Type your name"
-                required
-              />
+              <input id="profile-name-input" type="text" class="modal__input" required />
             </label>
-            <label for="profile-discription-input" class="modal__label">
+            <label class="modal__label">
               Description
-              <input
-                id="profile-discription-input"
-                type="text"
-                class="modal__input"
-                placeholder="Describe yourself"
-              />
+              <input id="profile-description-input" type="text" class="modal__input" />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
+
       <div class="modal" id="name-post-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn" aria-label="Close">
-            <img src="./images/close.svg" alt="" aria-hidden="true" />
-          </button>
+          <button type="button" class="modal__close-btn" aria-label="Close">×</button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form">
-            <label for="Card-image-input" class="modal__label">
+            <label class="modal__label">
               Image link
-              <input
-                id="Card-image-input"
-                type="url"
-                class="modal__input"
-                placeholder="Place a link to the picture"
-                required
-              />
+              <input id="card-image-input" type="url" class="modal__input" required />
             </label>
-            <label for="Card-caption-input" class="modal__label">
+            <label class="modal__label">
               Caption
-              <input
-                id="Card-caption-input"
-                type="text"
-                class="modal__input"
-                placeholder="Type your caption"
-                required
-              />
+              <input id="card-caption-input" type="text" class="modal__input" required />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
     </div>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
