@@ -1,44 +1,57 @@
-const profileNameElement = document.querySelector(".profile__name");
-const profileDescriptionElement = document.querySelector(".profile__description");
-const editProfileBtn = document.querySelector(".profile__edit-btn");
-const addPostBtn = document.querySelector(".profile__add-btn");
+
+const profileEditBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const newPostModal = document.querySelector("#name-post-modal");
+const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
+const editProfileForm = editProfileModal.querySelector(".modal__form");
+const profileNameInput = document.querySelector("#profile-name-input");
+const profileDescriptionInput = document.querySelector("#profile-discription-input");
+const addPostBtn = document.querySelector(".profile__add-btn");
+const addPostModal = document.querySelector("#name-post-modal");
+const addPostCloseBtn = addPostModal.querySelector(".modal__close-btn");
+const addPostForm = addPostModal.querySelector(".modal__form");
+const postImageInput = document.querySelector("#Card-image-input");
+const postCaptionInput = document.querySelector("#Card-caption-input");
+const cardsList = document.querySelector(".cards__list");
+const profileName = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
+
+function openModal(modal) {
+  modal.classList.add("modal_is-open");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-open");
+}
 
 
-const nameInput = document.querySelector("#profile-name-input");
-const descriptionInput = document.querySelector("#profile-description-input");
-const profileFormElement = editProfileModal.querySelector(".modal__form");
-const addCardFormElement = newPostModal.querySelector(".modal__form");
-const cardImageInput = document.querySelector("#card-image-input");
-const cardCaptionInput = document.querySelector("#card-caption-input");
+profileEditBtn.addEventListener("click", () => openModal(editProfileModal));
+editProfileCloseBtn.addEventListener("click", () => closeModal(editProfileModal));
 
-editProfileBtn.addEventListener("click", () => {
-  nameInput.value = profileNameElement.textContent;
-  descriptionInput.value = profileDescriptionElement.textContent;
-  editProfileModal.classList.add("modal_is-open");
+editProfileForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  profileName.textContent = profileNameInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closeModal(editProfileModal);
 });
 
-addPostBtn.addEventListener("click", () => {
-  newPostModal.classList.add("modal_is-open");
-});
+addPostBtn.addEventListener("click", () => openModal(addPostModal));
+addPostCloseBtn.addEventListener("click", () => closeModal(addPostModal));
 
-document.querySelectorAll(".modal__close-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.closest(".modal").classList.remove("modal_is-open");
-  });
-});
+addPostForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-profileFormElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  profileNameElement.textContent = nameInput.value;
-  profileDescriptionElement.textContent = descriptionInput.value;
-  editProfileModal.classList.remove("modal_is-open");
-});
+  const newCard = document.createElement("li");
+  newCard.classList.add("card");
 
-addCardFormElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  console.log("Image URL:", cardImageInput.value);
-  console.log("Caption:", cardCaptionInput.value);
-  newPostModal.classList.remove("modal_is-open");
+  newCard.innerHTML = `
+    <img src="${postImageInput.value}" alt="${postCaptionInput.value}" class="card__image" />
+    <div class="card__content">
+      <h2 class="card__title">${postCaptionInput.value}</h2>
+      <button type="button" class="card__like-btn" aria-label="Like this post"></button>
+    </div>
+  `;
+
+  cardsList.prepend(newCard);
+  addPostForm.reset();
+  closeModal(addPostModal);
 });

@@ -1,71 +1,95 @@
 .modal {
+  visibility: hidden;
+  background-color: #00000080;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
 }
-
-.modal.modal_is-open {
+ 
+.modal_is-open {
   visibility: visible;
+}
+ 
+.modal__container {
+  box-sizing: border-box; 
+  max-width: 730px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 32px 50px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+ 
+.modal__close-btn {
+  opacity: 0.4; 
+  position: absolute;
+  top: 32px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out; 
+}
+ 
+.modal__close-btn:hover {
   opacity: 1;
 }
-
-.modal__container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
-  max-width: 90%;
-}
-
+ 
 .modal__title {
-  margin-bottom: 15px;
+  margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #212121;
 }
-
+ 
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+ 
 .modal__label {
-  display: block;
-  margin-bottom: 10px;
+  margin: 0 0 32px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #212121;
 }
-
+ 
 .modal__input {
+  box-sizing: border-box;
+  line-height: 1; 
+  display: block;
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin: 8px 0 0;
+  padding: 12px;
+  border: 1px solid rgba(33, 33, 33, 0.4); 
+  border-radius: 6px;
+  font-size: 20px; 
 }
-
+ 
+.modal__input::placeholder {
+  color: #2121214d;
+}
+ 
 .modal__submit-btn {
-  width: 100%;
-  background: black;
-  color: white;
-  padding: 10px;
+  max-width: 156px;
+  background-color: #212121;
+  color: #fff;
+  padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
-
-.modal__close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .modal__submit-btn {
-    width: 100%;
-  }
+ 
+.modal__submit-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8); 
 }
