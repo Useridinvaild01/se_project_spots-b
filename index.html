@@ -16,7 +16,6 @@
       </header>
 
       <main class="content">
-        <!-- Profile Section -->
         <section class="profile page__section">
           <img
             src="./images/avatar.jpg"
@@ -26,55 +25,104 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
-            <button type="button" class="profile__edit-btn"> Edit Profile</button>
+            <button type="button" class="profile__edit-btn">
+              <img src="./images/pencil.svg" alt="Pencil icon" /> Edit Profile
+            </button>
           </div>
-          <button type="button" class="profile__add-btn"> New Post</button>
+          <button type="button" class="profile__add-btn">
+            <img src="./images/plus.svg" alt="Plus icon" /> New Post
+          </button>
         </section>
-
-        <!-- Cards Section -->
         <section class="cards page__section">
           <ul class="cards__list">
             <li class="card">
-              <img src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens" class="card__image" />
+              <img
+                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
+                alt="Val Thorens"
+                class="card__image"
+              />
               <div class="card__content">
                 <h2 class="card__title">Val Thorens</h2>
-                <button type="button" class="card__like-btn"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like Val Thorens"
+                ></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/2-photo-by-ceiline-from-pexels.jpg" alt="Golden Gate bridge" class="card__image" />
+              <img
+                src="./images/2-photo-by-ceiline-from-pexels.jpg"
+                alt="Golden Gate bridge"
+                class="card__image"
+              />
               <div class="card__content">
                 <h2 class="card__title">Golden Gate bridge</h2>
-                <button type="button" class="card__like-btn"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like Golden Gate bridge"
+                ></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="Restaurant terrace" class="card__image" />
+              <img
+                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
+                alt="Restaurant terrace"
+                class="card__image"
+              />
               <div class="card__content">
                 <h2 class="card__title">Restaurant terrace</h2>
-                <button type="button" class="card__like-btn"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like Restaurant terrace"
+                ></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="Mountain Lake" class="card__image" />
+              <img
+                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
+                alt="Mountain Lake"
+                class="card__image"
+              />
               <div class="card__content">
                 <h2 class="card__title">Mountain Lake</h2>
-                <button type="button" class="card__like-btn"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like Mountain Lake"
+                ></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="Forest Path" class="card__image" />
+              <img
+                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+                alt="Forest Path"
+                class="card__image"
+              />
               <div class="card__content">
                 <h2 class="card__title">Forest Path</h2>
-                <button type="button" class="card__like-btn"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like Forest Path"
+                ></button>
               </div>
             </li>
             <li class="card">
-              <img src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg
-              " alt="Snowy Cabin" class="card__image" />
+              <img
+                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
+                alt="Snowy Cabin"
+                class="card__image"
+              />
               <div class="card__content">
                 <h2 class="card__title">Snowy Cabin</h2>
-                <button type="button" class="card__like-btn"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like Snowy Cabin"
+                ></button>
               </div>
             </li>
           </ul>
@@ -87,34 +135,64 @@
 
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn">✖</button>
+          <button
+            type="button"
+            class="modal__close-btn"
+            aria-label="Close modal"
+          >
+            ✖
+          </button>
           <h2 class="modal__title">Edit profile</h2>
           <form class="modal__form">
             <label class="modal__label">
               Name
-              <input type="text" id="profile-name-input" class="modal__input" required />
+              <input
+                type="text"
+                id="profile-name-input"
+                class="modal__input"
+                required
+              />
             </label>
             <label class="modal__label">
               Description
-              <input type="text" id="profile-description-input" class="modal__input" />
+              <input
+                type="text"
+                id="profile-description-input"
+                class="modal__input"
+              />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
-
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close-btn">✖</button>
+          <button
+            type="button"
+            class="modal__close-btn"
+            aria-label="Close modal"
+          >
+            ✖
+          </button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form">
             <label class="modal__label">
               Image link
-              <input type="url" id="card-image-input" class="modal__input" required />
+              <input
+                type="url"
+                id="card-image-input"
+                class="modal__input"
+                required
+              />
             </label>
             <label class="modal__label">
               Caption
-              <input type="text" id="card-caption-input" class="modal__input" required />
+              <input
+                type="text"
+                id="card-caption-input"
+                class="modal__input"
+                required
+              />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
