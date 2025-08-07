@@ -22,10 +22,20 @@ const initialCards = [
   {
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg"
-  },
+  }
 ];
 
+function openModal(modal) {
+  modal.classList.add("modal_is-open");
+}
 
+function closeModal(modal) {
+  modal.classList.remove("modal_is-open");
+}
+
+
+const profileNameEl = document.querySelector(".profile__name");
+const profileDescriptionEl = document.querySelector(".profile__description");
 
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
@@ -43,19 +53,7 @@ const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostImageInput = document.querySelector("#card-image-input");
 const newPostCaptionInput = document.querySelector("#card-caption-input");
 
-
-const profileNameEl = document.querySelector(".profile__name");
-const profileDescriptionEl = document.querySelector(".profile__description");
-
-
-function openModal(modal) {
-  modal.classList.add("modal_is-open");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_is-open");
-}
-
+const cardsContainer = document.querySelector(".cards__list");
 
 editProfileBtn.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
@@ -63,19 +61,16 @@ editProfileBtn.addEventListener("click", () => {
   openModal(editProfileModal);
 });
 
-
 editProfileCloseBtn.addEventListener("click", () => {
   closeModal(editProfileModal);
 });
 
-
-function handleEditProfileSubmit(evt) {
+editProfileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
-}
-editProfileForm.addEventListener("submit", handleEditProfileSubmit);
+});
 
 newPostBtn.addEventListener("click", () => {
   openModal(newPostModal);
@@ -87,14 +82,35 @@ newPostCloseBtn.addEventListener("click", () => {
 });
 
 
-function handleAddCardSubmit(evt) {
+newPostForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   console.log("Image URL:", newPostImageInput.value);
   console.log("Caption:", newPostCaptionInput.value);
   closeModal(newPostModal);
-}
-newPostForm.addEventListener("submit", handleAddCardSubmit);
+});
+
 
 initialCards.forEach(function(card) {
   console.log(card.name);
+});
+
+
+function createCard(cardData) {
+  const cardElement = document.createElement("li");
+  cardElement.classList.add("card");
+
+  cardElement.innerHTML = `
+    <img src="${cardData.link}" alt="${cardData.name}" class="card__image" />
+    <div class="card__content">
+      <h2 class="card__title">${cardData.name}</h2>
+      <button type="button" class="card__like-btn"></button>
+    </div>
+  `;
+
+  return cardElement;
+}
+
+initialCards.forEach((card) => {
+  const cardElement = createCard(card);
+  cardsContainer.append(cardElement);
 });
