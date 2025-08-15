@@ -58,3 +58,24 @@
     max-width: 288px;
   }
 }
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .cards__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media screen and (max-width: 627px) {
+  .cards__list {
+    grid-template-columns: 1fr;
+  }
+}

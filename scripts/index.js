@@ -7,7 +7,6 @@ const initialCards = [
   { name: "Mountain house", link: "./images/6-photo-by-moritz-feldmann-from-pexels.jpg" }
 ];
 
-
 const cardTemplate = document.querySelector("#card-template").content;
 const cardsList = document.querySelector(".cards__list");
 
@@ -23,9 +22,8 @@ const editProfileDescriptionInput = document.querySelector("#profile-discription
 
 const newPostModal = document.querySelector("#name-post-modal");
 const newPostForm = newPostModal.querySelector(".modal__form");
-const newPostImageInput = document.querySelector("#Card-image-input");
-const newPostCaptionInput = document.querySelector("#Card-caption-input");
-
+const newPostImageInput = document.querySelector("#card-image-input");
+const newPostCaptionInput = document.querySelector("#card-caption-input");
 
 const imagePreviewModal = document.querySelector("#image-preview-modal");
 const previewImage = imagePreviewModal.querySelector(".modal__image");
@@ -93,6 +91,7 @@ function getCardElement(data) {
   return cardElement;
 }
 
+
 initialCards.forEach(cardData => {
   cardsList.prepend(getCardElement(cardData));
 });
@@ -109,7 +108,6 @@ editProfileForm.addEventListener("submit", (evt) => {
   profileDescription.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
 });
-
 
 newPostBtn.addEventListener("click", () => {
   newPostForm.reset();

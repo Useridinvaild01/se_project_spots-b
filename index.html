@@ -35,10 +35,8 @@
           </button>
         </section>
 
-    
         <section class="cards page__section">
-          <ul class="cards__list">
-          </ul>
+          <ul class="cards__list"></ul>
 
           <template id="card-template">
             <li class="card">
@@ -57,7 +55,6 @@
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
 
-  
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">X</button>
@@ -75,28 +72,32 @@
           </form>
         </div>
       </div>
+
+     
       <div class="modal" id="name-post-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">X</button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form">
-            <label for="Card-image-input" class="modal__label">
+            <label for="card-image-input" class="modal__label">
               Image link
-              <input id="Card-image-input" type="url" class="modal__input" placeholder="Place a link to the picture" required>
+              <input id="card-image-input" type="url" class="modal__input" placeholder="Place a link to the picture" required>
             </label>
-            <label for="Card-caption-input" class="modal__label">
+            <label for="card-caption-input" class="modal__label">
               Caption
-              <input id="Card-caption-input" type="text" class="modal__input" placeholder="Type your caption" required>
+              <input id="card-caption-input" type="text" class="modal__input" placeholder="Type your caption" required>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
+
+     
       <div class="modal" id="image-preview-modal">
         <div class="modal__container modal__container_type_preview">
           <button type="button" class="modal__close-btn">X</button>
           <figure class="modal__figure">
-            <img class="modal__image" src="" alt="">
+            <img class="modal__image" src="#" alt="Preview">
             <figcaption class="modal__caption"></figcaption>
           </figure>
         </div>
