@@ -16,7 +16,7 @@
 
 
 .card__delete-btn {
-  background-image: url("../images/delete.svg"); /* Make sure delete.svg exists in /images */
+  background-image: url("../images/delete.svg"); 
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px 15px;
@@ -55,7 +55,7 @@
 
 
 .card__like-btn {
-  background-image: url("../images/like.svg"); /* Make sure like.svg exists in /images */
+  background-image: url("../images/like.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -75,4 +75,85 @@
 .card__like-btn_active {
   background-image: url("../images/like-active.svg"); 
   opacity: 1;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 353px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card__image {
+  width: 100%;
+  height: 413px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.card__title {
+  color: #212121;
+  max-width: 100%;
+  margin: 0 12px 12px 12px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 12px 12px;
+}
+
+.card__like-btn {
+  background-image: url("../images/like.svg");
+  width: 23px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.card__like-btn:hover {
+  opacity: 1;
+}
+
+.card__like-btn_active {
+  background-image: url("../images/like-active.svg");
+  opacity: 1;
+}
+
+@media screen and (max-width: 627px) {
+  .card__image {
+    height: 288px;
+  }
+
+  .card__title {
+    max-width: 235px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .card__content {
+    max-width: 288px;
+  }
 }
