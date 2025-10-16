@@ -1,3 +1,4 @@
+
 .card {
   border-radius: 8px;
   overflow: hidden;
@@ -15,7 +16,7 @@
 
 
 .card__delete-btn {
-  background-image: url("../images/delete.svg"); /* ✅ make sure delete.svg exists in images folder */
+  background-image: url("../images/delete.svg"); /* Make sure delete.svg exists in /images */
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px 15px;
@@ -28,6 +29,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .card__delete-btn:hover {
@@ -41,7 +43,6 @@
   padding: 8px 0;
 }
 
-
 .card__title {
   color: #212121;
   font-weight: 500;
@@ -54,7 +55,7 @@
 
 
 .card__like-btn {
-  background-image: url("../images/like.svg"); /* ✅ make sure like.svg exists */
+  background-image: url("../images/like.svg"); /* Make sure like.svg exists in /images */
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -64,6 +65,7 @@
   background-color: transparent;
   opacity: 0.4;
   cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .card__like-btn:hover {
@@ -71,6 +73,6 @@
 }
 
 .card__like-btn_active {
-  background-image: url("../images/like-active.svg"); /* ✅ make sure like-active.svg exists */
+  background-image: url("../images/like-active.svg"); 
   opacity: 1;
 }

@@ -3,9 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Photo sharing app where you can add, like, and preview travel spots" />
+    <meta
+      name="description"
+      content="Photo sharing app where you can add, like, and preview travel spots"
+    />
     <meta name="author" content="David Chann" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, travel, gallery, cards" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, JavaScript, travel, gallery, cards"
+    />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
@@ -27,7 +33,8 @@
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/pencil.svg" alt="" aria-hidden="true" /> Edit Profile
+              <img src="./images/pencil.svg" alt="" aria-hidden="true" /> Edit
+              Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
@@ -35,17 +42,24 @@
           </button>
         </section>
 
-    
         <section class="cards page__section">
           <ul class="cards__list"></ul>
 
           <template id="card-template">
             <li class="card">
               <img class="card__image" src="" alt="" />
-              <button type="button" class="card__delete-btn" aria-label="Delete card"></button>
+              <button
+                type="button"
+                class="card__delete-btn"
+                aria-label="Delete card"
+              ></button>
               <div class="card__content">
                 <h2 class="card__title"></h2>
-                <button type="button" class="card__like-btn" aria-label="Like post"></button>
+                <button
+                  type="button"
+                  class="card__like-btn"
+                  aria-label="Like post"
+                ></button>
               </div>
             </li>
           </template>
@@ -65,11 +79,23 @@
           <form id="profile-form" class="modal__form">
             <label for="profile-name-input" class="modal__label">
               Name
-              <input id="profile-name-input" type="text" class="modal__input" placeholder="Type your name" required />
+              <input
+                id="profile-name-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your name"
+                required
+              />
             </label>
             <label for="profile-description-input" class="modal__label">
               Description
-              <input id="profile-description-input" type="text" class="modal__input" placeholder="Describe yourself" required />
+              <input
+                id="profile-description-input"
+                type="text"
+                class="modal__input"
+                placeholder="Describe yourself"
+                required
+              />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -85,11 +111,23 @@
           <form id="post-form" class="modal__form">
             <label for="card-image-input" class="modal__label">
               Image link
-              <input id="card-image-input" type="url" class="modal__input" placeholder="Place a link to the picture" required />
+              <input
+                id="card-image-input"
+                type="url"
+                class="modal__input"
+                placeholder="Place a link to the picture"
+                required
+              />
             </label>
             <label for="card-caption-input" class="modal__label">
               Caption
-              <input id="card-caption-input" type="text" class="modal__input" placeholder="Type your caption" required />
+              <input
+                id="card-caption-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your caption"
+                required
+              />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -98,11 +136,24 @@
 
       <div class="modal" id="image-preview-modal">
         <div class="modal__container modal__container_type_preview">
-          <button type="button" class="modal__close-btn modal__close-btn_type_preview" aria-label="Close">
-            <img src="./images/close-icon-preview.svg" alt="" aria-hidden="true" />
+          <button
+            type="button"
+            class="modal__close-btn modal__close-btn_type_preview"
+            aria-label="Close"
+          >
+            <img
+              src="./images/close-icon-preview.svg"
+              alt=""
+              aria-hidden="true"
+            />
           </button>
           <figure class="modal__figure">
-            <img class="modal__image" src="#" alt="Preview" style="max-width: 90vw;" />
+            <img
+              class="modal__image"
+              src="#"
+              alt="Preview"
+              style="max-width: 90vw"
+            />
             <figcaption class="modal__caption"></figcaption>
           </figure>
         </div>

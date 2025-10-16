@@ -1,51 +1,53 @@
 
 .cards {
-  padding: 40px 0;
-  border-bottom: 1px solid #e0e0e0; /* adjust color per Figma */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;            /* space between cards */
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .cards__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;     /* removes bullets */
   padding: 0;
   margin: 0;
-}
-
-@media screen and (max-width: 900px) {
-  .cards__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 627px) {
-  .cards__list {
-    grid-template-columns: 1fr;
-  }
+  gap: 16px;
 }
 
 
 .card {
+  background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 353px;     /* keeps cards uniform */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
+
+.card:hover {
+  transform: translateY(-4px); /* subtle lift on hover */
+}
+
 
 .card__image {
   width: 100%;
   height: 413px;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0; /* top corners only */
   margin-bottom: 12px;
   cursor: pointer;
 }
 
 .card__title {
   color: #212121;
-  max-width: 353px;
-  margin: 0;
+  max-width: 100%;
+  margin: 0 12px 12px 12px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
@@ -59,16 +61,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 12px 12px 12px;
 }
 
 .card__like-btn {
-  background-image: url("../images/like.svg"); /* make sure like.svg exists */
+  background-image: url("../images/like.svg");
   width: 23px;
   height: 20px;
   border: none;
   background-color: transparent;
   opacity: 0.4;
   cursor: pointer;
+  transition: opacity 0.2s;
 }
 
 .card__like-btn:hover {
@@ -76,9 +80,10 @@
 }
 
 .card__like-btn_active {
-  background-image: url("../images/like-active.svg"); /* make sure like-active.svg exists */
+  background-image: url("../images/like-active.svg");
   opacity: 1;
 }
+
 
 @media screen and (max-width: 627px) {
   .card__image {
