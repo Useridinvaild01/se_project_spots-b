@@ -1,38 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
- 
+
   const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+    {
+      name: "Golden Gate Bridge",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+    },
+    {
+      name: "Val Thorens",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+    },
+    {
+      name: "Restaurant terrace",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+    },
+    {
+      name: "An outdoor cafe",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+    },
+    {
+      name: "A very long bridge, over the forest and through the trees",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+    },
+    {
+      name: "Tunnel with morning light",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+    },
+    {
+      name: "Mountain house",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+    },
+  ];
 
-
- 
   const cardTemplate = document.querySelector("#card-template").content;
   const cardsList = document.querySelector(".cards__list");
 
@@ -83,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".modal").forEach(modal => {
     modal.addEventListener("mousedown", (evt) => {
-      if(evt.target === modal) closeModal(modal);
+      if (evt.target === modal) closeModal(modal);
     });
   });
 
@@ -123,70 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsList.prepend(cardElement);
   }
 
-  
   initialCards.forEach(renderCard);
 
-
-  function showInputError(form, input) {
-    const error = form.querySelector(`#${input.id}-error`);
-    input.classList.add("modal__input_type_error");
-    error.textContent = input.validationMessage;
-  }
-
-  function hideInputError(form, input) {
-    const error = form.querySelector(`#${input.id}-error`);
-    input.classList.remove("modal__input_type_error");
-    error.textContent = "";
-  }
-
-  function checkInputValidity(form, input) {
-    if (!input.validity.valid) showInputError(form, input);
-    else hideInputError(form, input);
-  }
-
-  function toggleButtonState(form) {
-    const button = form.querySelector(".modal__button");
-    if (form.checkValidity()) {
-      button.disabled = false;
-      button.classList.remove("modal__button_disabled");
-    } else {
-      button.disabled = true;
-      button.classList.add("modal__button_disabled");
-    }
-  }
-
-  function setFormListeners(form) {
-    Array.from(form.querySelectorAll(".modal__input")).forEach(input => {
-      input.addEventListener("input", () => {
-        checkInputValidity(form, input);
-        toggleButtonState(form);
-      });
-    });
-    toggleButtonState(form);
-  }
-
-  function resetForm(form) {
-    form.reset();
-    Array.from(form.querySelectorAll(".modal__input")).forEach(input => hideInputError(form, input));
-    toggleButtonState(form);
-  }
-
-  setFormListeners(editForm);
-  setFormListeners(addForm);
-
- 
+  // ---------- Profile Edit ----------
   editButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
-    resetForm(editForm);
+    editForm.reset();
     openModal(editModal);
   });
 
   addButton.addEventListener("click", () => {
-    resetForm(addForm);
+    addForm.reset();
     openModal(addModal);
   });
-
 
   editForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
@@ -199,7 +147,16 @@ document.addEventListener("DOMContentLoaded", () => {
     evt.preventDefault();
     const newCard = { name: cardTitleInput.value, link: cardLinkInput.value };
     renderCard(newCard);
-    resetForm(addForm);
+    addForm.reset();
     closeModal(addModal);
+  });
+
+  
+  enableValidation({
+    formSelector: ".modal__form",
+    inputSelector: ".modal__input",
+    submitButtonSelector: ".modal__button",
+    inactiveButtonClass: "modal__button_disabled",
+    inputErrorClass: "modal__input_type_error",
   });
 });

@@ -1,28 +1,37 @@
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
- 
-  forms.forEach(form => {
+
+  forms.forEach((form) => {
     const inputs = Array.from(form.querySelectorAll(config.inputSelector));
     const submitButton = form.querySelector(config.submitButtonSelector);
- 
-    function showInputError(input) {
+
+    
+    function showInputError(form, input, config) {
       const error = form.querySelector(`#${input.id}-error`);
       input.classList.add(config.inputErrorClass);
       error.textContent = input.validationMessage;
+      error.classList.add(config.errorClass);
     }
- 
-    function hideInputError(input) {
+
+    
+    function hideInputError(form, input, config) {
       const error = form.querySelector(`#${input.id}-error`);
       input.classList.remove(config.inputErrorClass);
       error.textContent = "";
+      error.classList.remove(config.errorClass);
     }
- 
-    function checkInputValidity(input) {
-      if (!input.validity.valid) showInputError(input);
-      else hideInputError(input);
+
+    
+    function checkInputValidity(form, input, config) {
+      if (!input.validity.valid) {
+        showInputError(form, input, config);
+      } else {
+        hideInputError(form, input, config);
+      }
     }
- 
-    function toggleButtonState() {
+
+    
+    function toggleButtonState(form, submitButton, config) {
       if (form.checkValidity()) {
         submitButton.disabled = false;
         submitButton.classList.remove(config.inactiveButtonClass);
@@ -31,13 +40,17 @@ function enableValidation(config) {
         submitButton.classList.add(config.inactiveButtonClass);
       }
     }
- 
-    inputs.forEach(input => {
+
+    
+    inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        checkInputValidity(input);
-        toggleButtonState();
+        checkInputValidity(form, input, config);
+        toggleButtonState(form, submitButton, config);
       });
     });
- 
-    toggleButtonState(); 
+
+  
+    toggleButtonState(form, submitButton, config);
+  });
 }
+
