@@ -5,33 +5,29 @@ function enableValidation(config) {
     const inputs = Array.from(form.querySelectorAll(config.inputSelector));
     const submitButton = form.querySelector(config.submitButtonSelector);
 
-    
-    function showInputError(form, input, config) {
+    function showInputError(input) {
       const error = form.querySelector(`#${input.id}-error`);
       input.classList.add(config.inputErrorClass);
       error.textContent = input.validationMessage;
       error.classList.add(config.errorClass);
     }
 
-    
-    function hideInputError(form, input, config) {
+    function hideInputError(input) {
       const error = form.querySelector(`#${input.id}-error`);
       input.classList.remove(config.inputErrorClass);
       error.textContent = "";
       error.classList.remove(config.errorClass);
     }
 
-    
-    function checkInputValidity(form, input, config) {
+    function checkInputValidity(input) {
       if (!input.validity.valid) {
-        showInputError(form, input, config);
+        showInputError(input);
       } else {
-        hideInputError(form, input, config);
+        hideInputError(input);
       }
     }
 
-    
-    function toggleButtonState(form, submitButton, config) {
+    function toggleButtonState() {
       if (form.checkValidity()) {
         submitButton.disabled = false;
         submitButton.classList.remove(config.inactiveButtonClass);
@@ -41,16 +37,22 @@ function enableValidation(config) {
       }
     }
 
-    
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        checkInputValidity(form, input, config);
-        toggleButtonState(form, submitButton, config);
+        checkInputValidity(input);
+        toggleButtonState();
       });
     });
 
-  
-    toggleButtonState(form, submitButton, config);
+    toggleButtonState();
   });
 }
 
+enableValidation({
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+});

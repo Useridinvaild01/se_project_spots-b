@@ -123,13 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initialCards.forEach(renderCard);
 
-  // ---------- Profile Edit ----------
-  editButton.addEventListener("click", () => {
-    nameInput.value = profileName.textContent;
-    descriptionInput.value = profileDescription.textContent;
-    editForm.reset();
-    openModal(editModal);
-  });
+editButton.addEventListener("click", () => {
+  nameInput.value = profileName.textContent;
+  descriptionInput.value = profileDescription.textContent;
+  openModal(editModal);
+});
+
 
   addButton.addEventListener("click", () => {
     addForm.reset();
@@ -152,11 +151,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   
-  enableValidation({
-    formSelector: ".modal__form",
-    inputSelector: ".modal__input",
-    submitButtonSelector: ".modal__button",
-    inactiveButtonClass: "modal__button_disabled",
-    inputErrorClass: "modal__input_type_error",
-  });
+ 
 });
