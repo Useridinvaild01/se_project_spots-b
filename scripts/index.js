@@ -1,34 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const initialCards = [
-    {
-      name: "Golden Gate Bridge",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-    },
-    {
-      name: "Val Thorens",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-    },
-    {
-      name: "Restaurant terrace",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-    },
-    {
-      name: "An outdoor cafe",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-    },
-    {
-      name: "A very long bridge, over the forest and through the trees",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-    },
-    {
-      name: "Tunnel with morning light",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-    },
-    {
-      name: "Mountain house",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-    },
+    { name: "Golden Gate Bridge", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg" },
+    { name: "Val Thorens", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg" },
+    { name: "Restaurant terrace", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg" },
+    { name: "An outdoor cafe", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg" },
+    { name: "A very long bridge, over the forest and through the trees", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg" },
+    { name: "Tunnel with morning light", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg" },
+    { name: "Mountain house", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg" },
   ];
 
   const cardTemplate = document.querySelector("#card-template").content;
@@ -36,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const profileName = document.querySelector(".profile__name");
   const profileDescription = document.querySelector(".profile__description");
-
   const editButton = document.querySelector(".profile__edit-btn");
   const addButton = document.querySelector(".profile__add-btn");
 
@@ -45,11 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const imagePreviewModal = document.querySelector("#image-preview-modal");
 
   const closeButtons = document.querySelectorAll(".modal__close");
-
   const editForm = editModal.querySelector(".modal__form");
   const nameInput = editForm.querySelector("#profile-name");
   const descriptionInput = editForm.querySelector("#profile-description");
-
   const addForm = addModal.querySelector(".modal__form");
   const cardTitleInput = addForm.querySelector("#card-title");
   const cardLinkInput = addForm.querySelector("#card-link");
@@ -57,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const previewImage = imagePreviewModal.querySelector(".modal__image");
   const previewCaption = imagePreviewModal.querySelector(".modal__caption");
 
-  
   function openModal(modal) {
     modal.classList.add("modal_opened");
     document.addEventListener("keydown", handleEscClose);
@@ -75,16 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  closeButtons.forEach(btn => {
+  closeButtons.forEach((btn) => {
     btn.addEventListener("click", () => closeModal(btn.closest(".modal")));
   });
 
-  document.querySelectorAll(".modal").forEach(modal => {
+  document.querySelectorAll(".modal").forEach((modal) => {
     modal.addEventListener("mousedown", (evt) => {
       if (evt.target === modal) closeModal(modal);
     });
   });
-
 
   function createCard(data) {
     const cardElement = cardTemplate.cloneNode(true);
@@ -123,12 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initialCards.forEach(renderCard);
 
-editButton.addEventListener("click", () => {
-  nameInput.value = profileName.textContent;
-  descriptionInput.value = profileDescription.textContent;
-  openModal(editModal);
-});
-
+  // Edit profile
+  editButton.addEventListener("click", () => {
+    nameInput.value = profileName.textContent;
+    descriptionInput.value = profileDescription.textContent;
+    openModal(editModal);
+  });
 
   addButton.addEventListener("click", () => {
     addForm.reset();
@@ -149,7 +122,4 @@ editButton.addEventListener("click", () => {
     addForm.reset();
     closeModal(addModal);
   });
-
-  
- 
 });
