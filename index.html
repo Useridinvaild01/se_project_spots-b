@@ -3,147 +3,116 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spots</title>
+    <meta name="description" content="???" />
+    <meta name="author" content="David Chann" />
+    <meta name="keywords" content="HTML, CSS, ???" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Spots</title>
   </head>
-
-  <body class="page">
-    <header class="header">
-      <img
-        class="header__logo"
-        src="./images/logo.svg"
-        alt="Spots logo"
-      />
-    </header>
-
-    <main class="content">
-      <section class="profile">
-        <div class="profile__info">
-          <h1 class="profile__name">Jacques Cousteau</h1>
-          <p class="profile__description">Explorer</p>
-        </div>
-        <button
-          class="profile__edit-btn"
-          type="button"
-          aria-label="Edit profile"
-        ></button>
-        <button
-          class="profile__add-btn"
-          type="button"
-          aria-label="Add new post"
-        ></button>
-      </section>
-
-      <section class="cards">
-        <ul class="cards__list"></ul>
-
-        <template id="card-template">
-          <li class="card">
-            <img class="card__image" src="#" alt="Card image" />
-            <button
-              type="button"
-              class="card__delete-btn"
-              aria-label="Delete card"
-            ></button>
-            <div class="card__content">
-              <h2 class="card__title"></h2>
-              <button
-                type="button"
-                class="card__like-btn"
-                aria-label="Like post"
-              ></button>
-            </div>
-          </li>
-        </template>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p class="footer__copyright">2025 &copy; Spots</p>
-    </footer>
-
-   
-    <div class="modal modal_type_edit">
-      <div class="modal__container">
-        <button class="modal__close" type="button" aria-label="Close"></button>
-        <h2 class="modal__title">Edit profile</h2>
-        <form class="modal__form" name="edit-profile-form" novalidate>
-          <input
-            id="profile-name"
-            type="text"
-            name="name"
-            class="modal__input"
-            placeholder="Name"
-            minlength="2"
-            maxlength="40"
-            required
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="./images/logo.svg" alt="Logo" class="header__logo" />
+      </header>
+      <main class="content">
+        <section class="profile page__section">
+          <img
+            src="./images/avatar.jpg"
+            alt="Bessie Coleman"
+            class="profile__avatar"
           />
-          <span id="profile-name-error" class="modal__error"></span>
-
-          <input
-            id="profile-description"
-            type="text"
-            name="description"
-            class="modal__input"
-            placeholder="Description"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span
-            id="profile-description-error"
-            class="modal__error"
-          ></span>
-
-          <button type="submit" class="modal__button">Save</button>
-        </form>
-      </div>
+          <div class="profile__column">
+            <h1 class="profile__name">Bessie Coleman</h1>
+            <p class="profile__description">Civil Aviator</p>
+            <button type="button" class="profile__edit-btn">
+              <img src="./images/pencil.svg" alt="Pencil icon" />Edit Profile
+            </button>
+          </div>
+          <button type="button" class="profile__add-btn">
+            <img src="./images/plus.svg" alt="Plus icon" />New Post
+          </button>
+        </section>
+        <section class="cards page__section">
+          <ul class="cards__list">
+            <li class="card">
+              <img
+                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
+                alt="Val Thorens"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title">Val Thorens</h2>
+                <button type="button" class="card__like-btn"></button>
+              </div>
+            </li>
+ 
+            <li class="card">
+              <img
+                src="./images/2-photo-by-ceiline-from-pexels.jpg"
+                alt="Restaurant terrace"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title">Restaurant terrace</h2>
+                <button type="button" class="card__like-btn"></button>
+              </div>
+            </li>
+ 
+            <li class="card">
+              <img
+                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
+                alt="An outdoor cafe"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title">An outdoor cafe</h2>
+                <button type="button" class="card__like-btn"></button>
+              </div>
+            </li>
+ 
+            <li class="card">
+              <img
+                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
+                alt="A very long bridge, over the forest..."
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title">
+                  A very long bridge, over the forest...
+                </h2>
+                <button type="button" class="card__like-btn"></button>
+              </div>
+            </li>
+ 
+            <li class="card">
+              <img
+                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+                alt="Tunnel with morning light"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title">Tunnel with morning light</h2>
+                <button type="button" class="card__like-btn"></button>
+              </div>
+            </li>
+ 
+            <li class="card">
+              <img
+                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
+                alt="Mountain house"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__title">Mountain house</h2>
+                <button type="button" class="card__like-btn"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer id="contacts" class="footer">
+        <p class="footer__copyright">2025 &copy; Spots</p>
+      </footer>
     </div>
-
-    
-    <div class="modal modal_type_add">
-      <div class="modal__container">
-        <button class="modal__close" type="button" aria-label="Close"></button>
-        <h2 class="modal__title">New place</h2>
-        <form class="modal__form" name="add-card-form" novalidate>
-          <input
-            id="card-title"
-            type="text"
-            name="title"
-            class="modal__input"
-            placeholder="Title"
-            minlength="1"
-            maxlength="30"
-            required
-          />
-          <span id="card-title-error" class="modal__error"></span>
-
-          <input
-            id="card-link"
-            type="url"
-            name="link"
-            class="modal__input"
-            placeholder="Image link"
-            required
-          />
-          <span id="card-link-error" class="modal__error"></span>
-
-          <button type="submit" class="modal__button">Create</button>
-        </form>
-      </div>
-    </div>
-
-    
-    <div class="modal" id="image-preview-modal">
-      <div class="modal__image-container">
-        <button class="modal__close" type="button" aria-label="Close"></button>
-        <img class="modal__image" src="#" alt="Preview" />
-        <p class="modal__caption"></p>
-      </div>
-    </div>
-
-    
-    <script type="module" src="./scripts/index.js"></script>
   </body>
-</html>
-

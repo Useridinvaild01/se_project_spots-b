@@ -1,3 +1,8 @@
+import "./index.css";
+
+
+import { enableValidation } from "../scripts/validation.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const initialCards = [
     { name: "Golden Gate Bridge", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg" },
@@ -96,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initialCards.forEach(renderCard);
 
-  // Edit profile
+  
   editButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
@@ -122,4 +127,15 @@ document.addEventListener("DOMContentLoaded", () => {
     addForm.reset();
     closeModal(addModal);
   });
+
+  
+  enableValidation({
+    formSelector: ".modal__form",
+    inputSelector: ".modal__input",
+    submitButtonSelector: ".modal__button",
+    inactiveButtonClass: "modal__button_disabled",
+    inputErrorClass: "modal__input_type_error",
+    errorClass: "modal__error_visible",
+  });
 });
+
