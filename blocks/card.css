@@ -1,60 +1,69 @@
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative; 
+}
+
 .card__image {
-  height: 413px;
   width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
   border-radius: 8px;
-  margin-bottom: 12px;
+  cursor: pointer;
 }
- 
-.card__title {
-  color: #212121;
-  max-width: 353px;
-  margin: 0;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+
+.card__delete-btn {
+  background-image: url("../images/delete.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 19px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
- 
+
+.card__delete-btn:hover {
+  opacity: 0.7;
+}
+
 .card__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 8px 0;
 }
- 
+
+.card__title {
+  color: #212121;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .card__like-btn {
-  background-image: url(../images/like.svg);
+  background-image: url("../images/like.svg");
   width: 23px;
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
- 
+  opacity: 0.4;
   cursor: pointer;
 }
- 
-.card__like-btn:hover {
-  opacity: 100%;
+
+.card__like-btn_active {
+  background-image: url("../images/like-active.svg");
+  opacity: 1;
 }
- 
-@media screen and (max-width: 627px) {
-  .card__image {
-    height: 288px;
-  }
- 
-  .card__title {
-    max-width: 235px;
-    font-size: 16px;
-    line-height: 16px;
-  }
- 
-  .card__content {
-    max-width: 288px;
-  }
+
+.card__like-btn:hover {
+  opacity: 1;
 }
