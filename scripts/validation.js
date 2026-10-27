@@ -48,3 +48,5 @@ function enableValidation(config) {
   });
 }
 
+
+export { enableValidation };

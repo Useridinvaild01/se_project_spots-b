@@ -1,3 +1,4 @@
+
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -10,7 +11,6 @@ export default class Api {
     }
     return Promise.reject(`Error: ${res.status}`);
   }
-
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -34,11 +34,17 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
     }).then(this._checkResponse);
+  }
+
+  getAppInfo() {
+    return Promise.all([
+      this.getUserInfo(),
+      this.getInitialCards(),
+    ]);
   }
 
   addCard({ name, link }) {
