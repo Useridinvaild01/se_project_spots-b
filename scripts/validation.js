@@ -1,3 +1,4 @@
+
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
 
@@ -48,5 +49,20 @@ function enableValidation(config) {
   });
 }
 
+function resetValidation(form, config) {
+  const inputs = Array.from(form.querySelectorAll(config.inputSelector));
+  const submitButton = form.querySelector(config.submitButtonSelector);
 
-export { enableValidation };
+  inputs.forEach((input) => {
+    const error = form.querySelector(`#${input.id}-error`);
+
+    input.classList.remove(config.inputErrorClass);
+    error.textContent = "";
+    error.classList.remove(config.errorClass);
+  });
+
+  submitButton.disabled = true;
+  submitButton.classList.add(config.inactiveButtonClass);
+}
+
+export { enableValidation, resetValidation };
