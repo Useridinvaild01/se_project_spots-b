@@ -3,8 +3,9 @@ import "../pages/index.css";
 import {
   enableValidation,
   resetValidation,
-} from "../scripts/validation.js";
-import Api from "../src/components/Api.js";
+} from "./validation.js";
+import Api from "../components/Api.js";
+import { handleSubmit } from "../utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const api = new Api({
@@ -25,10 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const initialCards = [
-    {
-      name: "Golden Gate Bridge",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-    },
     {
       name: "Val Thorens",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -62,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileDescription = document.querySelector(
     ".profile__description"
   );
+
   const editButton = document.querySelector(".profile__edit-btn");
   const addButton = document.querySelector(".profile__add-btn");
 
@@ -74,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const avatarEditButton = document.querySelector(
     ".profile__avatar-edit-btn"
   );
+
   const avatarImage = document.querySelector(".profile__avatar");
   const avatarForm = avatarModal.querySelector(".modal__form");
   const avatarLinkInput = avatarForm.querySelector("#avatar-link");
@@ -94,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmDeleteButton = deleteModal.querySelector(
     ".modal__button_type_delete"
   );
+
   const cancelDeleteButton = deleteModal.querySelector(
     ".modal__button_type_cancel"
   );
@@ -221,6 +221,19 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardElement;
   }
 
+  function renderCard(item) {
+    const cardElement = createCard(item);
+    cardsList.prepend(cardElement);
+  }
+
+  function renderInitialCards() {
+    cardsList.innerHTML = "";
+
+    initialCards.forEach((item) => {
+      cardsList.append(createCard(item));
+    });
+  }
+
   confirmDeleteButton.addEventListener("click", () => {
     if (!cardToDelete || isDeleting) {
       return;
@@ -265,12 +278,10 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal(deleteModal);
   });
 
-  function renderCard(item) {
-    const cardElement = createCard(item);
-    cardsList.prepend(cardElement);
-  }
-
-  Promise.all([api.getUserInfo(), api.getInitialCards()])
+  Promise.all([
+    api.getUserInfo(),
+    api.getInitialCards(),
+  ])
     .then(([userData, cardsData]) => {
       profileName.textContent = userData.name;
       profileDescription.textContent = userData.about;
@@ -283,25 +294,24 @@ document.addEventListener("DOMContentLoaded", () => {
           ? userData.avatar
           : "./images/avatar.jpg";
 
-      cardsList.innerHTML = "";
-
-      if (Array.isArray(cardsData)) {
+      if (Array.isArray(cardsData) && cardsData.length > 0) {
+        cardsList.innerHTML = "";
         cardsData.forEach(renderCard);
       } else {
-        initialCards.forEach(renderCard);
+        renderInitialCards();
       }
     })
     .catch((err) => {
       console.error("Error loading profile or cards:", err);
 
       avatarImage.src = "./images/avatar.jpg";
-      cardsList.innerHTML = "";
-      initialCards.forEach(renderCard);
+      renderInitialCards();
     });
 
   editButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
+
     resetValidation(editForm, validationConfig);
     openModal(editModal);
   });
@@ -318,91 +328,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   editForm.addEventListener("submit", (evt) => {
-    evt.preventDefault();
+    function makeRequest() {
+      return api
+        .updateUserInfo({
+          name: nameInput.value,
+          about: descriptionInput.value,
+        })
+        .then((userData) => {
+          profileName.textContent = userData.name;
+          profileDescription.textContent = userData.about;
+          closeModal(editModal);
+        });
+    }
 
-    const saveButton = editForm.querySelector('button[type="submit"]');
-    const originalText = saveButton.textContent;
-
-    saveButton.textContent = "Saving...";
-    saveButton.disabled = true;
-
-    api
-      .updateUserInfo({
-        name: nameInput.value,
-        about: descriptionInput.value,
-      })
-      .then((userData) => {
-        profileName.textContent = userData.name;
-        profileDescription.textContent = userData.about;
-        closeModal(editModal);
-      })
-      .catch((err) => {
-        console.error("Error updating profile:", err);
-      })
-      .finally(() => {
-        saveButton.textContent = originalText;
-        saveButton.disabled = false;
-      });
+    handleSubmit(makeRequest, evt);
   });
 
   avatarForm.addEventListener("submit", (evt) => {
-    evt.preventDefault();
+    function makeRequest() {
+      return api
+        .updateAvatar({
+          avatar: avatarLinkInput.value,
+        })
+        .then((userData) => {
+          avatarImage.src = userData.avatar;
+          closeModal(avatarModal);
+        });
+    }
 
-    const saveButton = avatarForm.querySelector('button[type="submit"]');
-    const originalText = saveButton.textContent;
-
-    saveButton.textContent = "Saving...";
-    saveButton.disabled = true;
-
-    api
-      .updateAvatar({
-        avatar: avatarLinkInput.value,
-      })
-      .then((userData) => {
-        avatarImage.src = userData.avatar;
-        closeModal(avatarModal);
-        avatarForm.reset();
-      })
-      .catch((err) => {
-        console.error("Error updating avatar:", err);
-      })
-      .finally(() => {
-        saveButton.textContent = originalText;
-        saveButton.disabled = false;
-      });
+    handleSubmit(makeRequest, evt);
   });
 
   addForm.addEventListener("submit", (evt) => {
-    evt.preventDefault();
+    function makeRequest() {
+      return api
+        .addCard({
+          name: cardTitleInput.value,
+          link: cardLinkInput.value,
+        })
+        .then((newCard) => {
+          renderCard(newCard);
+          resetValidation(addForm, validationConfig);
+          closeModal(addModal);
+        });
+    }
 
-    const saveButton = addForm.querySelector('button[type="submit"]');
-    const originalText = saveButton.textContent;
-
-    saveButton.textContent = "Saving...";
-    saveButton.disabled = true;
-
-    api
-      .addCard({
-        name: cardTitleInput.value,
-        link: cardLinkInput.value,
-      })
-      .then((newCard) => {
-        renderCard(newCard);
-        addForm.reset();
-        resetValidation(addForm, validationConfig);
-        closeModal(addModal);
-      })
-      .catch((err) => {
-        console.error("Error adding card:", err);
-      })
-      .finally(() => {
-        saveButton.textContent = originalText;
-        saveButton.disabled = !addForm.checkValidity();
-        saveButton.classList.toggle(
-          validationConfig.inactiveButtonClass,
-          saveButton.disabled
-        );
-      });
+    handleSubmit(makeRequest, evt);
   });
 
   enableValidation(validationConfig);

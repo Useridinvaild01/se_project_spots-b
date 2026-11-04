@@ -36,9 +36,9 @@ a {
 
  
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none; 
+  text-decoration: underline; 
+  text-decoration: underline dotted; 
 }
  
 b,
@@ -49,8 +49,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace; 
+  font-size: 1em; 
 }
  
  
@@ -142,7 +142,6 @@ legend {
   white-space: normal; 
 }
  
-/
  
 progress {
   vertical-align: baseline;
@@ -158,8 +157,8 @@ textarea {
  
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box; 
+  padding: 0; 
 }
  
 
