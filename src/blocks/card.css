@@ -1,6 +1,6 @@
 
 .card {
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -43,6 +43,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
+  background-color: transparent;
 }
 
 .card__title {
