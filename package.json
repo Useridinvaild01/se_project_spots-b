@@ -1,0 +1,38 @@
+{
+  "name": "se_project_spots-b",
+  "version": "1.0.0",
+  "description": "This is an image sharing site.",
+  "homepage": "https://github.com/Useridinvaild01/se_project_spots-b#readme",
+  "bugs": {
+    "url": "https://github.com/Useridinvaild01/se_project_spots-b/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Useridinvaild01/se_project_spots-b.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.7",
+    "@babel/preset-env": "^8.0.7",
+    "babel-loader": "^10.1.1",
+    "copy-webpack-plugin": "^14.0.0",
+    "css-loader": "^7.1.5",
+    "html-webpack-plugin": "^5.6.8",
+    "mini-css-extract-plugin": "^2.10.2",
+    "postcss": "^8.5.29",
+    "postcss-loader": "^8.2.1",
+    "postcss-preset-env": "^11.6.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0"
+  }
+}

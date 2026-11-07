@@ -1,3 +1,4 @@
+
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
 
@@ -48,11 +49,20 @@ function enableValidation(config) {
   });
 }
 
-enableValidation({
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-});
+function resetValidation(form, config) {
+  const inputs = Array.from(form.querySelectorAll(config.inputSelector));
+  const submitButton = form.querySelector(config.submitButtonSelector);
+
+  inputs.forEach((input) => {
+    const error = form.querySelector(`#${input.id}-error`);
+
+    input.classList.remove(config.inputErrorClass);
+    error.textContent = "";
+    error.classList.remove(config.errorClass);
+  });
+
+  submitButton.disabled = true;
+  submitButton.classList.add(config.inactiveButtonClass);
+}
+
+export { enableValidation, resetValidation };

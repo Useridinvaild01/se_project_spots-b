@@ -1,34 +1,73 @@
+
 .profile {
   display: flex;
   padding: 34px 0 20px;
-  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
   align-self: center;
+  align-items: flex-end;
+}
+.profile__avatar-container {
+  position: relative;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .profile__avatar {
+  display: block;
   height: 190px;
   width: 190px;
-  margin-right: 20px;
   border-radius: 8px;
+  object-fit: cover;
+}
+
+.profile__avatar-edit-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 8px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.profile__avatar-edit-btn::after {
+  content: "Edit Avatar";
+  color: #fff;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.profile__avatar-container:hover .profile__avatar-edit-btn {
+  opacity: 1;
 }
 
 .profile__column {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  min-height: 190px;
 }
 
 .profile__name {
   margin: 0 0 12px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-style: normal;
   font-size: 32px;
   line-height: 1;
-  letter-spacing: 0;
+  color: #212121;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #212121;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
@@ -38,15 +77,13 @@
   margin: 0;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-style: normal;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: 0;
+  color: #212121;
+  opacity: 0.7;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #212121;
-  opacity: 0.7;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
@@ -58,10 +95,8 @@
   margin-top: auto;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-style: normal;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: 0;
   border: none;
   background-color: transparent;
   color: #212121;
@@ -77,14 +112,12 @@
 .profile__add-btn {
   gap: 8px;
   display: flex;
-  align-self: end;
+  align-self: flex-end;
   margin-left: auto;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-weight: 500;
-  font-style: normal;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: 0;
   border-radius: 8px;
   background-color: #212121;
   color: #fcf5e5;
@@ -94,28 +127,38 @@
   justify-content: center;
   border: none;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .profile__add-btn:hover {
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 627px) {
-  .profile__edit-btn {
-    align-self: center;
-   
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
   }
-.profile {
-  flex-direction: column;
-  max-width: 288px;
-  align-items: center;
-  text-align: center;
-  padding-top: 20px;
-}
-  .profile__avatar {
+
+  .profile__avatar-container {
     margin: 0 0 12px;
+  }
+
+  .profile__avatar {
     height: 80px;
     width: 80px;
+  }
+
+  .profile__avatar-edit-btn {
+    border-radius: 8px;
+  }
+
+  .profile__avatar-edit-btn::after {
+    display: none;
   }
 
   .profile__name {
@@ -125,16 +168,24 @@
   }
 
   .profile__description {
-    margin: 0 0 32px;
+    margin: 0 0 20px;
     max-width: 288px;
   }
 
   .profile__column {
+    align-items: center;
+    min-height: auto;
     margin: 0 0 20px;
+  }
+
+  .profile__edit-btn {
+    align-self: center;
+    margin-top: 0;
   }
 
   .profile__add-btn {
     margin: 0;
     width: 100%;
+    align-self: center;
   }
 }
